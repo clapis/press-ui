@@ -1,0 +1,27 @@
+import { FileTextIcon } from "lucide-react";
+import { age, humanize, Publication, source } from "../lib/types";
+
+export function SearchResults({ pubs }: { pubs: Publication[] }) {
+
+  return (
+    <div className="text-sm">
+      <p className="my-3"><span className="font-semibold">{pubs.length}</span> documento(s) encontrados</p>
+      {pubs.map((pub) => (
+        <a key={pub.id} href={pub.url} target="_blank">
+          <div className="flex flex-start gap-3 md:gap-5 py-3 items-center border-black border-b border-secondary ">
+              <div><FileTextIcon /></div>
+              <div className="hidden md:flex flex-col truncate max-w-lg">
+                  <span className="text-xs text-muted-foreground">{new Date(pub.date).toDateString()} - {humanize(age(pub))}</span>
+                  <span>{pub.url}</span>
+              </div>
+              <div className="hidden md:block ml-auto self-end text-nowrap">{source(pub)}</div>
+              <div className="md:hidden flex flex-col truncate">
+                  <span className="text-xs text-muted-foreground">{source(pub)}</span>
+                  <span>{new Date(pub.date).toDateString()} - {humanize(age(pub))}</span>
+              </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  );
+}
