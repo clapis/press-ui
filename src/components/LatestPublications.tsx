@@ -20,7 +20,7 @@ export default function LatestPublications() {
       <CardContent>
         <Table>
           <TableBody>
-            {data?.map((pub) => (
+            {data?.sort((a,b) => Number(b.isOfficial) - Number(a.isOfficial) || a.source.length - b.source.length).map((pub) => (
               <TableRow key={pub.id} className={date_age_in_days(pub.date) > 3 ? "text-muted-foreground" : ""}>
                 <TableCell>{pub.source}</TableCell>
                 <TableCell className="hidden md:inline-flex">

@@ -8,6 +8,7 @@ export type Publication = {
     url: string;
     date: string;
     source: string;
+    isOfficial: boolean;
 }
 
 export type Alert = {

@@ -7,6 +7,7 @@ import Root from "./Root.tsx";
 import Home from "./Home.tsx";
 import App from "./App.tsx";
 import Auth from "./Auth.tsx";
+import Status from "./Status.tsx";
 import Alerts from "./Alerts.tsx";
 import ErrorPage from "./Error.tsx";
 import Profile from "./Profile.tsx";
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     path: "/auth/*",
     element: <Auth />
   },
+  {
+    path: "/status",
+    element: <Status />
+  }
 ]);
 
 createRoot(document.getElementById("root")!).render(

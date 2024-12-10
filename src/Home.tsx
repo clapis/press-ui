@@ -1,20 +1,18 @@
-import LatestPublications from "./components/LatestPublications";
 import Search from "./components/Search";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full md:mt-8">
+    <div className="flex flex-col items-center justify-center min-h-full mt-5 md:mt-8">
       <div className="flex flex-col items-center max-w-sm">
-        <p className="text-2xl font-semibold mb-3">Alertas do Diário Oficial</p>
-        <p className="text-sm text-center">
-          Crie seu alerta para palavras-chaves e assim que uma nova edição do
-          diário oficial seja publicado contendo sua busca, te avisamos!
+        <p className="text-2xl font-semibold mb-3">Alertas do Diário <span className="hidden md:inline">Oficial</span></p>
+        <p className="text-center text-sm md:text-base">
+          Crie alertas para palavras-chaves e seja notificado assim que uma nova edição do Diário Oficial publicar algo relevante para você!
         </p>
       </div>
 
       <Search />
-
-      <LatestPublications />
+      <Testimonials />
     </div>
   );
 }
