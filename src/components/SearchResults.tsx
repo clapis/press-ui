@@ -1,13 +1,18 @@
-import { FileTextIcon } from "lucide-react";
+import { FileTextIcon, LoaderCircleIcon } from "lucide-react";
 import { Publication } from "@/lib/types";
 import { date_age_in_days, humanize } from "@/lib/utils";
 
-export function SearchResults({ pubs }: { pubs: Publication[] }) {
+export function SearchResults({ pubs, isLoading }: { pubs: Publication[], error: boolean | undefined, isLoading: boolean }) {
 
   return (
-    <div className="text-sm">
-      <p className="my-3"><span className="font-semibold">{pubs.length}</span> documento(s) encontrados</p>
-      {pubs.map((pub) => (
+    <div className="text-sm w-full my-3">
+      <div className="my-3 text-center">
+        {/* { error && <p>Opa, deu zica! Alguma coisa de errado aconteceu</p> } */}
+        { isLoading && <LoaderCircleIcon className="h-4 w-4 mx-auto animate-spin" /> }
+        { pubs?.length === 0 && <p>Não encontramos em nenhum diário recente.<p></p>Crie seu alerta para ser notificado!</p> }
+        { pubs?.length > 0 && <p>Encontramos em <span className="font-semibold">{pubs.length}</span> diário(s) recentes</p> }
+      </div>
+      {pubs?.map((pub) => (
         <a key={pub.id} href={pub.url} target="_blank">
           <div className="flex flex-start gap-3 md:gap-5 py-3 items-center border-black border-b border-secondary ">
               <div><FileTextIcon /></div>

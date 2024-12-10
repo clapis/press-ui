@@ -5,7 +5,7 @@ import NavigationBar from "./components/NavigationBar";
 export default function Root() {
   return (
     <ThemeProvider>
-      <div className="container mx-auto md:max-w-[50rem] px-3">
+      <div className="container mx-auto md:max-w-[50rem] px-3 mb-20">
         <NavigationBar />
         <Outlet />
       </div>

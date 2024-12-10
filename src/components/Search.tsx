@@ -1,9 +1,10 @@
 import { useDebouncedCallback } from "use-debounce";
 import { Input } from "./ui/input";
 import { SearchResults } from "./SearchResults";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useSearchPublications } from "@/hooks/usePublications";
-import { LoaderCircleIcon } from "lucide-react";
+import { Button } from "./ui/button";
+import { BellPlusIcon } from "lucide-react";
 
 export default function Search() {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -23,17 +24,19 @@ export default function Search() {
   }, 300);
 
   return (
-    <div className="flex flex-col my-8">
-      <Input
-        placeholder="Buscar.."
-        className="w-64 md:w-[32rem] mx-auto my-3"
-        onChange={(e) => handleSearch(e.target.value)}
-        defaultValue={searchParams.get("q")?.toString()}
-      />
-
-      {isLoading && <LoaderCircleIcon className="h-4 w-4 animate-spin mx-auto" />}
-      {error && <p className="text-sm">Opa, deu zica! Alguma coisa de errado aconteceu</p>}
-      {data && <SearchResults pubs={data!} />}
+    <div className="flex flex-col items-center my-8">
+      <div className="flex items-center justify-center gap-3 md:w-[32rem] my-5">
+        <Input
+          placeholder="Buscar.."
+          onChange={(e) => handleSearch(e.target.value)}
+          defaultValue={searchParams.get("q")?.toString()}
+        />
+        <Link to="/app/alerts">
+          <Button className="hidden md:inline-block">Criar Alerta</Button>
+          <Button size="icon" className="md:hidden"><BellPlusIcon size="16" /></Button>
+        </Link>
+      </div>
+      <SearchResults pubs={data!} error={error} isLoading={isLoading} />
     </div>
   );
 }
