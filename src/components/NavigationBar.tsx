@@ -17,7 +17,7 @@ export default function NavigationBar() {
   useEffect(() => setOpen(false), [location])
 
   return (
-    <header className="flex justify-between py-4">
+    <header className="flex justify-between py-4 mb-5 md:mb-8">
       <div>
         { isAuthenticated && 
         <Sheet open={open} onOpenChange={setOpen}>

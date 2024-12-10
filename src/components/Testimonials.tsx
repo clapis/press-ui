@@ -20,7 +20,7 @@ export default function Testimonials() {
     .slice(0, 3);
 
     return (
-      <div className="w-full overflow-clip p-2">
+      <div className="my-8 md:my-16 w-full overflow-hidden p-2">
         <div className="flex justify-center my-6">
          { Array.from({ length: 5 }, () => (<StarFilledIcon />)) }
         </div>
