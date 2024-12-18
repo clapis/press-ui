@@ -1,6 +1,9 @@
 export type Source = {
+    id: string;
     name: string;
     url: string;
+    isOfficial: boolean;
+    lastPublicationOn?: string;
 }
 
 export type Publication = {

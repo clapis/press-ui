@@ -16,7 +16,7 @@ export function date_age_in_days(date: string) {
 export function humanize(days: number) {
   if (days > 60) return `há ${Math.floor(days/30)} meses`;
   if (days > 14) return `há ${Math.floor(days/7)} semanas`
-  if (days === 0) return "hoje";
   if (days === 1) return "ontem";
+  if (days === 0) return "hoje";
   return `há ${days} dias`;
 }

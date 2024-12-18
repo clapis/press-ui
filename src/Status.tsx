@@ -1,9 +1,9 @@
-import LatestPublications from "./components/LatestPublications";
+import Sources from "./components/Sources";
 
 export default function Status() {
   return (
     <div className="container mx-auto my-12">
-      <LatestPublications />
+      <Sources />
     </div>
   );
 }

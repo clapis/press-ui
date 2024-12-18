@@ -25,7 +25,7 @@ export default function Search() {
 
   return (
     <div className="flex flex-col items-center my-8">
-      <div className="flex items-center justify-center gap-3 md:w-[32rem] my-5">
+      <div className="flex items-center justify-center gap-3 w-3/4 md:w-[32rem] my-5">
         <Input
           placeholder="Buscar.."
           onChange={(e) => handleSearch(e.target.value)}
