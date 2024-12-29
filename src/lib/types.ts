@@ -16,7 +16,8 @@ export type Publication = {
 
 export type Alert = {
     id?: string;
-    term: string;
+    keyword: string;
+    sourceId?: string;
     createdOn?: string;
     lastNotification?: string;
 }

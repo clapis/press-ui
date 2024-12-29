@@ -8,10 +8,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-import { useSources } from "@/hooks/useSources";
+import useSources from "@/hooks/useSources";
 
 export default function Sources() {
-  const { data, error, isLoading } = useSources();
+  const { sources, error, isLoading } = useSources();
 
   // TODO
   if (error || isLoading) return <></>;
@@ -24,7 +24,7 @@ export default function Sources() {
       <CardContent>
         <Table>
           <TableBody>
-            {data?.sort((a, b) => Number(b.isOfficial) - Number(a.isOfficial) || a.name.length - b.name.length).map((source) => {
+            {sources?.sort((a, b) => Number(b.isOfficial) - Number(a.isOfficial) || a.name.length - b.name.length).map((source) => {
 
                 const age =  date_age_in_days(source.lastPublicationOn!);
 

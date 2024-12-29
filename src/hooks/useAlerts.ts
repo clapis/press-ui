@@ -14,11 +14,11 @@ export default function useAlerts() {
       .then(res => res.json())
   });
 
-  const create = (keyword: string) => {
+  const create = (alert: Alert) => {
     return getToken!()
       .then(token => fetch(URL, { 
         method: 'POST',
-        body: JSON.stringify({ keyword }),
+        body: JSON.stringify(alert),
         headers: { 
           Authorization: `Bearer ${token}` ,
           "Content-Type": "application/json" 
@@ -42,6 +42,8 @@ export default function useAlerts() {
 //     const { data, error, isLoading, isValidating, mutate } = useSWR<Alert[]>("/alerts", () => delay(2000).then(() => alerts));
 
 //     const create = async (alert: Alert) => {
+//         alert.id = randid();
+//         alert.createdOn = (new Date()).toISOString();
 //         alerts = [...alerts, alert];
 //         mutate(alerts);
 //     } 
@@ -53,28 +55,27 @@ export default function useAlerts() {
 
 //     const randid = () => (Math.random() + 1).toString(36).substring(2);
 //     const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-//     const factory = (keyword: string) => ({ id: randid(), term: keyword, createdOn: (new Date()).toISOString() });
 
-//   return { alerts: data, error, isLoading, isValidating, create, remove, factory }
+//   return { alerts: data, error, isLoading, isValidating, create, remove }
 
 // }
 
 // let alerts: Alert[] = [
 //     {
 //       id: "lk34k34",
-//       term: "clapis",
+//       keyword: "clapis",
 //       createdOn: "2024-01-01",
 //       lastNotification: "2024-01-01",
 //     },
 //     {
 //       id: "bk35k12",
-//       term: "20340034",
+//       keyword: "20340034",
 //       createdOn: "2024-01-01",
 //       lastNotification: "2024-01-01",
 //     },
 //     {
 //       id: "kks4k96",
-//       term: "concurso",
+//       keyword: "concurso",
 //       createdOn: "2024-01-01",
 //       lastNotification: "2024-01-01",
 //     },

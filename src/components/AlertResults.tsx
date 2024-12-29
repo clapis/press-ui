@@ -19,7 +19,8 @@ export default function AlertResults({alerts, onRemove} : {alerts: Alert[], onRe
             <TableHeader>
               <TableRow>
                 <TableHead>Palavra-chave</TableHead>
-                <TableHead className="hidden md:table-cell">Criada em</TableHead>
+                <TableHead>Onde</TableHead>
+                <TableHead className="hidden md:table-cell">Criado em</TableHead>
                 <TableHead>Último alerta</TableHead>
                 <TableHead></TableHead>
               </TableRow>
@@ -27,13 +28,14 @@ export default function AlertResults({alerts, onRemove} : {alerts: Alert[], onRe
             <TableBody>
               {alerts.map((alert) => (
                 <TableRow key={alert.id}>
-                  <TableCell>{alert.term}</TableCell>
+                  <TableCell>{alert.keyword}</TableCell>
+                  <TableCell>{alert.sourceId}</TableCell>
                   <TableCell className="hidden md:table-cell">
                     {date_format(alert.createdOn!)}
                   </TableCell>
                   <TableCell>{alert.lastNotification ? humanize(date_age_in_days(alert.lastNotification)) : "-"}</TableCell>
                   <TableCell className="flex justify-end">
-                    <Link to={ `/?q=${alert.term}`}><Button variant="ghost" title="Buscar"><SearchIcon size="1rem"/></Button></Link>
+                    <Link to={ `/?q=${alert.keyword}`}><Button variant="ghost" title="Buscar"><SearchIcon size="1rem"/></Button></Link>
                     <Button variant="ghost" onClick={() => onRemove(alert)} title="Remover"><Trash2Icon size="1rem" /></Button>
                   </TableCell>
                 </TableRow>

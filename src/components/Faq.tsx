@@ -12,7 +12,9 @@ export default function Faq() {
           <AccordionItem value="1">
             <AccordionTrigger>O serviço é gratuito?</AccordionTrigger>
             <AccordionContent>
-              Sim, o serviço de alerta é totalmente gratuito.
+              Sim, o serviço oferece 2 alertas gratuitos para todos os usuários.
+              Os Membros Plus têm acesso a funcionalidades extras, com até 20
+              alertas incluídos, além de outras vantagens exclusivas.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="2">
@@ -69,7 +71,10 @@ export default function Faq() {
             </AccordionTrigger>
             <AccordionContent>
               Sim, você pode editar ou excluir seus alertas a qualquer momento
-              via <Link className="hover:underline" to="/app/alerts">Meus Alertas</Link>
+              via{" "}
+              <Link className="hover:underline" to="/app/alerts">
+                Meus Alertas
+              </Link>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="8">

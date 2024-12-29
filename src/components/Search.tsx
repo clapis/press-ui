@@ -32,8 +32,10 @@ export default function Search() {
           defaultValue={searchParams.get("q")?.toString()}
         />
         <Link to="/app/alerts">
-          <Button className="hidden md:inline-block">Criar Alerta</Button>
-          <Button size="icon" className="md:hidden"><BellPlusIcon size="16" /></Button>
+          <Button className="flex gap-2">
+            <span className="hidden md:inline-block">Criar Alerta</span>
+            <BellPlusIcon className="md:hidden" size="16" />
+          </Button>
         </Link>
       </div>
       <SearchResults pubs={data!} error={error} isLoading={isLoading} />
