@@ -17,7 +17,7 @@ export default function Alerts() {
 
       <div className="my-3">
         { isLoading && <LoaderCircleIcon className="h-4 w-4 animate-spin mx-auto" />}
-        { error && <p className="text-sm">Opa, deu zica! Dá um segundo que agente tenta outra vez.</p>}
+        { error && <p className="text-sm">Opa, deu zica! Dá um segundo que a gente tenta outra vez.</p>}
         { alerts && <AlertResults alerts={alerts} onRemove={remove} />}
       </div>
 
