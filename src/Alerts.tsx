@@ -6,6 +6,7 @@ import useSources from "./hooks/useSources";
 import { Link } from "react-router-dom";
 
 export default function Alerts() {
+  const max = 3;
   const { sources } = useSources();
   const { alerts, error, isLoading, create, remove } = useAlerts();
 
@@ -14,7 +15,7 @@ export default function Alerts() {
       <h1 className="text-xl font-semibold mb-3">Alertas</h1>
 
       <div className="flex justify-end">
-        { alerts && <CreateAlert isEnabled={alerts.length < 2} onSubmit={create} /> }
+        { alerts && <CreateAlert isEnabled={alerts.length < max} onSubmit={create} /> }
       </div>
 
       <div className="my-3">
@@ -24,7 +25,7 @@ export default function Alerts() {
       </div>
 
       <div className="my-3">
-        { alerts && alerts.length >= 2 && <p className="text-[0.8rem] text-muted-foreground">
+        { alerts && alerts.length >= max && <p className="text-[0.8rem] text-muted-foreground">
           * Faça um <Link className="underline" to="/app/profile">upgrade</Link> do seu plano para criar mais alertas.
         </p>}
       </div>

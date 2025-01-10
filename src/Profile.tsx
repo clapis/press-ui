@@ -12,6 +12,14 @@ export default function Profile() {
       <div className="space-y-8">
 
         <div className="my-5 space-y-2">
+          <Label>Notificações</Label>
+          <Input type="text" defaultValue={user!.email!} disabled />
+          <p className="text-[0.8rem] text-muted-foreground">
+            Enviaremos notificações de seus alertas para o seu email.
+          </p>
+        </div>
+
+        <div className="my-5 space-y-2">
           <Label>Plano</Label>
           <div className="flex justify-between gap-5">
             <Input type="text" defaultValue="Básico" disabled />
@@ -24,13 +32,14 @@ export default function Profile() {
         </div>
 
         <div className="my-5 space-y-2">
-          <Label>Notificações</Label>
-          <Input type="text" defaultValue={user!.email!} disabled />
-          <p className="text-[0.8rem] text-muted-foreground">
-            Enviaremos notificações de seus alertas para o seu email.
+          <Label>Suporte</Label>
+          <p className="text-sm text-muted-foreground">
+            <span>Tem dúvidas, sugestões ou precisa de ajuda? Sua cidade/estado não está na lista?</span>
+            <br/>
+            <span>Entre em contato conosco pelo e-mail: </span>
+            <a className="text-primary" href="mailto:suporte@alertasdodiario.com.br">suporte@alertasdodiario.com.br</a>
           </p>
         </div>
-        
       </div>
     </div>
   );

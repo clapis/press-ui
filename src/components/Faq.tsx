@@ -12,7 +12,7 @@ export default function Faq() {
           <AccordionItem value="1">
             <AccordionTrigger>O serviço é gratuito?</AccordionTrigger>
             <AccordionContent>
-              Sim, o serviço oferece 2 alertas gratuitos para todos os usuários.
+              Sim, o serviço oferece 3 alertas gratuitos para todos os usuários por 3 meses.
               Os Membros Plus têm acesso a funcionalidades extras, com até 20
               alertas incluídos, além de outras vantagens exclusivas.
             </AccordionContent>
@@ -104,7 +104,7 @@ export default function Faq() {
             </AccordionTrigger>
             <AccordionContent>
               Com certeza! Valorizamos seu feedback. Envie suas sugestões
-              através da nossa página de contato.
+              através da nosso <Link className="hover:underline" to="/app/profile">contato</Link>.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
