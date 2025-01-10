@@ -2,9 +2,11 @@ import { LoaderCircleIcon } from "lucide-react";
 import AlertResults from "./components/AlertResults";
 import CreateAlert from "./components/CreateAlert";
 import useAlerts from "./hooks/useAlerts";
+import useSources from "./hooks/useSources";
 import { Link } from "react-router-dom";
 
 export default function Alerts() {
+  const { sources } = useSources();
   const { alerts, error, isLoading, create, remove } = useAlerts();
 
   return (
@@ -18,7 +20,7 @@ export default function Alerts() {
       <div className="my-3">
         { isLoading && <LoaderCircleIcon className="h-4 w-4 animate-spin mx-auto" />}
         { error && <p className="text-sm">Opa, deu zica! Dá um segundo que a gente tenta outra vez.</p>}
-        { alerts && <AlertResults alerts={alerts} onRemove={remove} />}
+        { alerts && <AlertResults alerts={alerts} sources={sources} onRemove={remove} />}
       </div>
 
       <div className="my-3">
