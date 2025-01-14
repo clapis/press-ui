@@ -9,14 +9,14 @@ export default function Faq() {
           Perguntas Frequentes
         </p>
         <Accordion type="single" collapsible>
-          <AccordionItem value="1">
+          {/* <AccordionItem value="1">
             <AccordionTrigger>O serviço é gratuito?</AccordionTrigger>
             <AccordionContent>
-              Sim, o serviço oferece 3 alertas gratuitos para todos os usuários por 30 dias.
+              O serviço oferece 3 alertas gratuitos para todos os usuários por 15 dias.
               Os Membros Plus e Premium têm acesso a funcionalidades extras, com até 20
               alertas incluídos, além de outras vantagens exclusivas.
             </AccordionContent>
-          </AccordionItem>
+          </AccordionItem> */}
           <AccordionItem value="2">
             <AccordionTrigger>
               Para quais diários oficiais o serviço funciona?
