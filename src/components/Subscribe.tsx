@@ -53,7 +53,7 @@ const StripePricingTable = ({ session }: { session: string }) => {
     // "customer-email": userEmail,
     // "client-reference-id": userId,
     "customer-session-client-secret": session,
-    "pricing-table-id": "prctbl_1QgSMyCz6sAWVbtKogQ1F44a",
-    "publishable-key": "pk_test_51QftjzCz6sAWVbtKa6a7GSgRpnqRCdKYQ2ywYJQfPUGBxeUEVs0FLAyMfTW9PlxP1dRVGabfKp4baLzjAWeF4OGE00VASsh60w",
+    "publishable-key": `${import.meta.env.VITE_STRIPE_PK}`,
+    "pricing-table-id": `${import.meta.env.VITE_STRIPE_PRICING_TABLE}`
   });
 };
