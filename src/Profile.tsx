@@ -36,11 +36,11 @@ export default function Profile() {
               { isTrial && <Subscribe /> }
               { !isTrial && <Button onClick={() => portal().then(url => window.location.href = url)}>Gerenciar</Button> }
             </div>
-            { isTrial && 
-            <p className="text-[0.8rem] text-muted-foreground">
-              Faça um upgrade agora e não deixe a oportunidade passar.
+            
+            <p className="text-[0.8rem] text-muted-foreground align-text-bottom">
+              { profile.subscription && isTrial && <span>Faça um upgrade agora e não deixe a oportunidade passar.</span> }
+              { !profile.subscription && <span className="text-red-600">Sua assinatura expirou. Renove para reativar seus alertas.</span> }
             </p>
-            }
           </div>
 
           <div className="my-5 space-y-2">
