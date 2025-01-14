@@ -1,46 +1,67 @@
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { Label } from "./components/ui/label";
 import { Input } from "./components/ui/input";
+import useProfile from "./hooks/useProfile";
+import { LoaderCircleIcon } from "lucide-react";
+import Subscribe from "./components/Subscribe";
 import { Button } from "./components/ui/button";
+import usePayments from "./hooks/usePayments";
 
 export default function Profile() {
-  const { user } = useKindeAuth();
+  const { portal } = usePayments();
+  const { profile, error, isLoading } = useProfile();
+
+  let isTrial = profile?.subscription?.isTrial !== false;
 
   return (
     <div className="flex flex-col">
       <h1 className="text-xl font-semibold mb-3">Perfil</h1>
-      <div className="space-y-8">
 
-        <div className="my-5 space-y-2">
-          <Label>Notificações</Label>
-          <Input type="text" defaultValue={user!.email!} disabled />
-          <p className="text-[0.8rem] text-muted-foreground">
-            Enviaremos notificações de seus alertas para o seu email.
-          </p>
-        </div>
+      {isLoading && <LoaderCircleIcon className="h-4 w-4 animate-spin mx-auto" />}
+      {error && <p className="text-sm">Opa, deu zica! Dá um segundo que a gente tenta outra vez.</p>}
 
-        <div className="my-5 space-y-2">
-          <Label>Plano</Label>
-          <div className="flex justify-between gap-5">
-            <Input type="text" defaultValue="Básico" disabled />
-            <Button disabled>Upgrade</Button>
+      {profile && (
+        <div className="space-y-8">
+          <div className="my-5 space-y-2">
+            <Label>Notificações</Label>
+            <Input type="text" defaultValue={profile.email} disabled />
+            <p className="text-[0.8rem] text-muted-foreground">
+              Enviaremos notificações de seus alertas para o seu email.
+            </p>
           </div>
-          <p className="text-[0.8rem] text-muted-foreground">
-            Faça um upgrade para o plano Plus e desbloqueie mais
-            funcionalidades.
-          </p>
-        </div>
 
-        <div className="my-5 space-y-2">
-          <Label>Suporte</Label>
-          <p className="text-sm text-muted-foreground">
-            <span>Tem dúvidas, sugestões ou precisa de ajuda? Sua cidade/estado não está na lista?</span>
-            <br/>
-            <span>Entre em contato conosco pelo e-mail: </span>
-            <a className="text-primary" href="mailto:suporte@alertasdodiario.com.br">suporte@alertasdodiario.com.br</a>
-          </p>
+          <div className="my-5 space-y-2">
+            <Label>Plano</Label>
+            <div className="flex justify-between gap-5">
+              <Input type="text" defaultValue={profile.subscription?.name ?? "-"} disabled />
+              { isTrial && <Subscribe /> }
+              { !isTrial && <Button onClick={() => portal().then(url => window.location.href = url)}>Gerenciar</Button> }
+            </div>
+            { isTrial && 
+            <p className="text-[0.8rem] text-muted-foreground">
+              Faça um upgrade agora e não deixe a oportunidade passar.
+            </p>
+            }
+          </div>
+
+          <div className="my-5 space-y-2">
+            <Label>Suporte</Label>
+            <p className="text-sm text-muted-foreground">
+              <span>
+                Tem dúvidas, sugestões ou precisa de ajuda? Sua cidade/estado
+                não está na lista?
+              </span>
+              <br />
+              <span>Entre em contato conosco pelo e-mail: </span>
+              <a
+                className="text-primary"
+                href="mailto:suporte@alertasdodiario.com.br"
+              >
+                suporte@alertasdodiario.com.br
+              </a>
+            </p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

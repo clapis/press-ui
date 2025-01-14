@@ -21,3 +21,17 @@ export type Alert = {
     createdOn?: string;
     lastNotification?: string;
 }
+
+export type Profile = {
+    id: string;
+    email: string;
+    customerId: string;
+    subscription?: Subscription;
+    createdOn: string;
+}
+
+export type Subscription = {
+    name: string;
+    isTrial: boolean;
+    maxAlerts: number;
+}

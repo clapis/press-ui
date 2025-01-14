@@ -12,8 +12,8 @@ export default function Faq() {
           <AccordionItem value="1">
             <AccordionTrigger>O serviço é gratuito?</AccordionTrigger>
             <AccordionContent>
-              Sim, o serviço oferece 3 alertas gratuitos para todos os usuários por 3 meses.
-              Os Membros Plus têm acesso a funcionalidades extras, com até 20
+              Sim, o serviço oferece 3 alertas gratuitos para todos os usuários por 30 dias.
+              Os Membros Plus e Premium têm acesso a funcionalidades extras, com até 20
               alertas incluídos, além de outras vantagens exclusivas.
             </AccordionContent>
           </AccordionItem>
