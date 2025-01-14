@@ -6,13 +6,13 @@ export default function Auth() {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { isLoading, isAuthenticated, login } = useKindeAuth();
+    const { isLoading, isAuthenticated, register } = useKindeAuth();
 
     if (location.pathname === "/auth/login") {
         const from = location.state?.from?.pathname || "/";
 
         if (!isLoading && !isAuthenticated)
-            login({ app_state: { redirectTo: from }});
+            register({ app_state: { redirectTo: from }});
                 
         if (!isLoading && isAuthenticated)
             navigate(from, { replace: true });    
