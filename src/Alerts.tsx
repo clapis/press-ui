@@ -27,16 +27,16 @@ export default function Alerts() {
 
   return (
     <div className="flex flex-col">
+      { profile && !profile.subscription && <NoSubscription /> }
+
       <h1 className="text-xl font-semibold mb-3">Alertas</h1>
 
-      { profile && !profile.subscription ? <NoSubscription /> :
-        <div className="flex justify-between items-end">
-          <p className="text-sm">
-            Crie alertas para palavras-chaves de seu interesse
-          </p>
-          {alerts && <CreateAlert isEnabled={alerts.length < max} onSubmit={create} />}
-        </div>
-      }
+      <div className="flex justify-between items-end">
+        <p className="text-sm">
+          Crie alertas para palavras-chaves de seu interesse
+        </p>
+        { alerts && <CreateAlert isEnabled={!profile || alerts.length < max} onSubmit={create} />}
+      </div>
 
       <div className="my-8">
         {isLoading && <LoaderCircleIcon className="h-4 w-4 animate-spin mx-auto" />}
@@ -85,7 +85,7 @@ export default function Alerts() {
       </div>
 
       <div className="my-3">
-        {alerts && alerts.length >= max && (
+        {profile && profile.subscription && alerts && alerts.length >= max && (
           <p className="text-[0.8rem] text-muted-foreground">
             * Faça um <Link className="underline" to="/app/profile">upgrade</Link> do seu plano para criar mais alertas.
           </p>
