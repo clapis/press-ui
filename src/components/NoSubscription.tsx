@@ -9,7 +9,7 @@ export default function NoSubscription() {
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Atenção</AlertTitle>
           <AlertDescription>
-             Sua <Link className="underline" to="/app/profile">assinatura</Link> expirou e seus alertas não estão ativos.
+             Seu <Link className="underline" to="/app/profile">plano</Link> expirou e seus alertas não estão ativos.
           </AlertDescription>
         </Alert>
       </div>

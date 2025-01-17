@@ -39,7 +39,7 @@ export default function Profile() {
             
             <p className="text-[0.8rem] text-muted-foreground align-text-bottom">
               { profile.subscription && isTrial && <span>Faça um upgrade agora e não deixe a oportunidade passar.</span> }
-              { !profile.subscription && <span className="text-red-600">Sua assinatura expirou. Renove para reativar seus alertas.</span> }
+              { !profile.subscription && <span className="text-red-600">Seu plano expirou. Renove para reativar seus alertas.</span> }
             </p>
           </div>
 
