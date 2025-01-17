@@ -54,6 +54,11 @@ export default function Faq() {
               Nosso sistema possui uma precisão estimada de 97%. Apesar de não
               garantirmos 100%, nosso objetivo é oferecer um serviço útil e
               confiável.
+              <br/><br/>
+              Use a funcionalidade de busca para testar a precisão das suas 
+              palavras-chave e verificar se elas retornam os resultados esperados 
+              nas edições do Diário Oficial. Essa é uma ótima maneira de ajustar 
+              seus alertas.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="6">
