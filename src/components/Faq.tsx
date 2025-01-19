@@ -24,7 +24,7 @@ export default function Faq() {
             <AccordionContent>
               <p>Atualmente, o serviço cobre os seguintes diários oficiais:</p>
               <ol className="list-inside list-disc my-2">
-                <li>Diário Oficial da União</li>
+                {/* <li>Diário Oficial da União</li> */}
                 <li>Diário Oficial do Município de Franca - SP</li>
                 <li>Diário Oficial do Município de Ribeirão Preto - SP</li>
                 <li>Diário Oficial do Município de São Carlos - SP</li>
