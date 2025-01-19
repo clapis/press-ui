@@ -19,7 +19,7 @@ export default function Faq() {
           </AccordionItem> */}
           <AccordionItem value="2">
             <AccordionTrigger>
-              Para quais diários oficiais o serviço funciona?
+              Quais Diários Oficiais são cobertos pelo serviço?
             </AccordionTrigger>
             <AccordionContent>
               <p>Atualmente, o serviço cobre os seguintes diários oficiais:</p>
