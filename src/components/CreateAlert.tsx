@@ -75,7 +75,7 @@ export default function CreateAlert({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                {sources?.map((source) => (
+                {sources?.filter(s => s.isOfficial).map((source) => (
                   <SelectItem key={source.id} value={source.id}>
                     {source.name}
                   </SelectItem>
