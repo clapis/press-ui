@@ -5,13 +5,15 @@ import { LoaderCircleIcon } from "lucide-react";
 import Subscribe from "./components/Subscribe";
 import { Button } from "./components/ui/button";
 import usePayments from "./hooks/usePayments";
+import { date_age_in_days } from "./lib/utils";
 
 export default function Profile() {
   const { portal } = usePayments();
   const { profile, error, isLoading } = useProfile();
 
   let isTrial = profile?.subscription?.isTrial !== false;
-
+  let remaining = profile && date_age_in_days(profile.createdOn) < 15 ? 15 - date_age_in_days(profile.createdOn) : 0;
+  
   return (
     <div className="flex flex-col">
       <h1 className="text-xl font-semibold mb-3">Perfil</h1>
@@ -38,7 +40,7 @@ export default function Profile() {
             </div>
             
             <p className="text-[0.8rem] text-muted-foreground align-text-bottom">
-              { profile.subscription && isTrial && <span>Faça um upgrade agora e não deixe a oportunidade passar.</span> }
+              { profile.subscription && isTrial && <span>Restam {remaining} dias grátis. Faça um upgrade agora e não deixe a oportunidade passar.</span> }
               { !profile.subscription && <span className="text-red-600">Seu plano expirou. Renove para reativar seus alertas.</span> }
             </p>
           </div>
