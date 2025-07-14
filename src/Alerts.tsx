@@ -46,7 +46,7 @@ export default function Alerts() {
             <TableHeader>
               <TableRow>
                 <TableHead>Palavra-chave</TableHead>
-                <TableHead>Onde</TableHead>
+                <TableHead>Diário</TableHead>
                 <TableHead className="hidden md:table-cell">
                   Criado em
                 </TableHead>
